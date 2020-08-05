@@ -1,12 +1,66 @@
 ---
-layout: post
-title: What's Jekyll?
+title: "Edge Case: Nested and Mixed Lists"
+categories:
+  - Edge Case
+tags:
+  - content
+  - css
+  - edge case
+  - lists
+  - markup
 ---
 
-[Jekyll](http://jekyllrb.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):
+Nested and mixed lists are an interesting beast. It's a corner case to make sure that
 
-  > Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.
+* Lists within lists do not break the ordered list numbering order
+* Your list styles go deep enough.
 
-It's an immensely useful tool and one we encourage you to use here with Hyde.
+### Ordered -- Unordered -- Ordered
 
-Find out more by [visiting the project on GitHub](https://github.com/mojombo/jekyll).
+1. ordered item
+2. ordered item 
+   * **unordered**
+   * **unordered** 
+     1. ordered item
+     2. ordered item
+3. ordered item
+4. ordered item
+
+### Ordered -- Unordered -- Unordered
+
+1. ordered item
+2. ordered item 
+   * **unordered**
+   * **unordered** 
+     * unordered item
+     * unordered item
+3. ordered item
+4. ordered item
+
+### Unordered -- Ordered -- Unordered
+
+* unordered item
+* unordered item 
+  1. ordered
+  2. ordered 
+     * unordered item
+     * unordered item
+* unordered item
+* unordered item
+
+### Unordered -- Unordered -- Ordered
+
+* unordered item
+* unordered item 
+  * unordered
+  * unordered 
+    1. **ordered item**
+    2. **ordered item**
+* unordered item
+* unordered item
+
+### Task Lists
+
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
